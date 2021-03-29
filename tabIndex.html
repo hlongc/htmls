@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tabIndex</title>
+</head>
+<body>
+  <div>
+    tabindex默认为0，都为0的情况下，按照在文档中出现的位置进行移动
+    在设置了tabindex的情况下，从小值往大值移动
+    -1则不会被tab命中
+  </div>
+  <p>
+    <label for="name">name</label>
+    <input id="name" type="text">
+  </p>
+  <p>
+    <label for="age">age</label>
+    <input id="age" type="text" tabindex="4">
+  </p>
+  <p>
+    <label for="demo">随便</label>
+    <input id="demo" type="text" tabindex="-1">
+  </p>
+  <p>
+    <label for="hobby">爱好</label>
+    <input id="hobby" type="text" tabindex="2">
+  </p>
+</body>
+</html>

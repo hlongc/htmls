@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      height: 200px;
+      border: 2px solid rebeccapurple;
+    }
+    .ball {
+      height: 200px;
+      width: 200px;
+      border-radius: 100%;
+      background-color: aquamarine;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: run 4s infinite;
+      transform: translateZ(0);
+    }
+    /* @keyframes run {
+      0% {
+        left: 0;
+      }
+      20% {
+        left: 100px;
+      }
+      40% {
+        left: 200px;
+      }
+      60% {
+        left: 300px;
+      }
+      80% {
+        left: 200px;
+      }
+      100% {
+        left: 0;
+      }
+    } */
+    @keyframes run {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(100px);
+      }
+      40% {
+        transform: translateX(200px);
+      }
+      60% {
+        transform: translateX(300px);
+      }
+      80% {
+        transform: translateX(200px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ball"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    function reflow() {
+      const el = document.createElement('p')
+      el.innerText = '重新绘制'
+      app.appendChild(el)
+      console.log(app.offsetHeight)
+    }
+    // reflow()
+    window.onload = function() {
+      console.log('onload')
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded')
+    })
+  </script>
+</body>
+</html>

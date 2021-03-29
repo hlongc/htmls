@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+    li {
+      background-color: red;
+    }
+    li:nth-last-of-type(1) {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" placeholder="你看你能不能输入" onkeydown="handle(event)" style="ime-mode:disabled" />
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <p>嘻嘻</p>
+  </ul>
+  <script>
+    function handle(e) {
+      e.preventDefault()
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义右键菜单</title>
+  <style>
+    ul {
+      display: none;
+      position: absolute;
+      list-style: none;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 2px #000;
+    }
+    li {
+      list-style: none;
+      height: 25px;
+      line-height: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div>右击我</div>
+  <ul>
+    <li><a href="#">菜单1</a></li>
+    <li><a href="#">菜单2</a></li>
+    <li><a href="#">菜单3</a></li>
+  </ul>
+  <script>
+    const ul = document.querySelector('ul')
+    document.querySelector('div').addEventListener('contextmenu', function(e) {
+      e.preventDefault()
+      ul.style.display = 'block'
+      ul.style.top = e.clientY + 'px'
+      ul.style.left = e.clientX + 'px'
+      if (e.defaultPrevented) { // 标识当前的默认行为是否被阻止
+        console.log('阻止右键')
+      }
+    })
+    document.addEventListener('click', function(e) {
+      if (e.target !== ul) ul.style.display = 'none'
+    })
+  </script>
+</body>
+</html>

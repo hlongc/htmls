@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul, li {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">触发自定义事件</button>
+  <div id="test"></div>
+  <script>
+    // 自定义事件只能在元素自身绑定和触发，在自身进行发布订阅
+    const customEvent = new CustomEvent('selfEvent', { detail: { name: 'hlc' } })
+    btn.addEventListener('selfEvent', function() {
+      console.log(...arguments)
+    })
+    btn.onclick = function() {
+      btn.dispatchEvent(customEvent)
+    }
+
+    window.onload = function() {
+      console.log('onload')
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      // 在test元素中创建一个沙箱
+      const shadowDOM = test.attachShadow({ mode: 'closed' })
+      const ul = document.createElement('ul')
+      ul.innerHTML = `
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+      `
+      shadowDOM.appendChild(ul)
+      // const span = document.createElement('span')
+      // span.innerText = '我是shadow span'
+      // span.setAttribute('class', 'shadow-span')
+      // const style = document.createElement('style')
+      // style.textContent = `
+      //   .shadow-span { color: red; }
+      // `
+      // shadowDOM.appendChild(style)
+      // shadowDOM.appendChild(span)
+    })
+  </script>
+</body>
+</html>

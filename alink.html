@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .square {
+    width: 30%;
+    padding-bottom: 30%;
+    background-color: blue;
+    position: absolute;
+  }
+  .circle {
+    width: 0;
+    height: 0;
+    border-width: 50px;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: coral transparent transparent transparent;
+  }
+  </style>
+</head>
+<body>
+  <a href="https://www.baidu.com">没有target属性的链接</a>
+  <a href="https://www.baidu.com" target="_blank">target为_blank的链接</a>
+  <a href="https://www.baidu.com" target="_self">target为_self的链接</a>
+  <a href="https://www.baidu.com" target="_top">target为_top的链接</a>
+  <a href="https://www.baidu.com" target="_parent">target为_parent的链接</a>
+  <a href="/alink.html" target="_blank">打开新页面</a>
+  <div class="circle"></div>
+  <div class="square" id="square"></div>
+  <script>
+    function drag(el) {
+      let x, y, left, top, begin
+      el.addEventListener('mousedown', function(e) {
+        begin = true
+        el.style.cursor = 'move'
+        x = e.clientX
+        y = e.clientY
+        left = el.offsetLeft
+        top = el.offsetTop
+      })
+      el.addEventListener('mousemove', function(e) {
+        if (!begin) return
+        const curX = e.clientX
+        const curY = e.clientY
+        let l = curX - (x - left)
+        let t = curY - (y - top)
+        l = l < 20 ? 0 : l // 吸附效果
+        t = t < 20 ? 0 : t
+        el.style.top = t + 'px'
+        el.style.left = l + 'px'
+      })
+      el.addEventListener('mouseup', function() {
+        begin = false
+        el.style.cursor = 'default'
+      })
+    }
+    drag(document.querySelector('#square'))
+
+    var F = function() {}
+    Object.prototype.a = function() {
+      console.log('a')
+    }
+    Function.prototype.b = function() {
+      console.log('b')
+    }
+    const f = new F()
+    f.a()
+    // f.b() // Uncaught TypeError: f.b is not a function
+    F.a()
+    F.b()
+
+    const test = {
+      name: 'xix',
+      age: 17,
+      say() {
+        return this.name + this.age
+      },
+      hello: () => {
+        return this.name + this.age
+      }
+    }
+    console.log(test.say(), test.hello())
+  </script>
+</body>
+</html>

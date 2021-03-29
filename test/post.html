@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="postmessage/style.css" />
+  <title>test/index.html</title>
+</head>
+
+<body>
+  <div class="container">
+    <p>test index.html</p>
+    <p>聊天记录</p>
+    <ul class="message-container" id="list"></ul>
+    <input id="reply" type="text" placeholder="按Enter键发送消息" onkeyup="handle(event)" />
+  </div>
+  <script src="postmessage/common.js"></script>
+  <script>
+    const list = document.querySelector('#list')
+    const reply = document.querySelector('#reply')
+    function handle(event) {
+      if (event.keyCode === 13) {
+        const message = reply.value
+        window.opener.postMessage(message, 'http://192.168.3.97:8088/post.html')
+        createMessage(list, message, 'me')
+        reply.value = ''
+      }
+    }
+    window.addEventListener('message', function (e) {
+      createMessage(list, e.data, 'he')
+    })
+  </script>
+</body>
+
+</html>

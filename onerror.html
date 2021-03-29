@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="/1.jpg" />
+  <img src="/2.jpg" />
+  <img src="/3.jpg" />
+  <script>
+    // 资源加载以及网络错误，必须在捕获阶段才能捕获成功，如果第三个参数传false，那么无法捕获
+    window.addEventListener('error', function(e) {
+      console.log(e)
+    }, true)
+
+    window.addEventListener('error', function(e) {
+      console.log(e)
+    }, false)
+    console.log(a)
+
+    // 捕获未处理的promise异常
+    window.addEventListener('unhandledrejection', function(e) {
+      console.log(e)
+    })
+    Promise.reject('错误')
+  </script>
+  <script src="/1.js"></script>
+  <script src="/2.js"></script>
+</body>
+</html>

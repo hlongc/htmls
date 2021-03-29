@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('1')
+    setTimeout(() => {
+      console.log('2')
+    })
+    Promise.resolve().then(() => {
+      console.log('3')
+    })
+    console.log('4')
+  </script>
+  <script>
+    console.log('5')
+    setTimeout(() => {
+      console.log('6')
+    })
+    Promise.resolve().then(() => {
+      console.log('7')
+    })
+    console.log('8')
+  </script>
+</body>
+</html>

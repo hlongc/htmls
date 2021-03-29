@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>web component</title>
+</head>
+<body>
+  <p>外部元素</p>
+  <user-card></user-card>
+
+  <template id="userCardTmp">
+    <style>
+      .user-card {
+        padding: 0;
+        margin: 0;
+      }
+      .title {
+        color: brown;
+      }
+      .sub-title {
+        background-color: lightskyblue;
+      }
+    </style>
+    <div class="user-card">
+      <p class="title">我是p标签啊</p>
+      <span class="sub-title">我是span</span>
+    </div>
+  </template>
+  <script>
+    class UserCard extends HTMLElement {
+      constructor() {
+        super()
+        const shadow = this.attachShadow({ mode: 'closed' })
+        const template = document.getElementById('userCardTmp')
+        const content = template.content.cloneNode(true)
+        shadow.appendChild(content)
+      }
+    }
+    window.customElements.define('user-card', UserCard)
+  </script>
+</body>
+</html>

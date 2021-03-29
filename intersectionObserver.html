@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 500px;
+      height: 500px;
+      overflow: auto;
+    }
+    .placeholder {
+      height: 520px;
+      background-color: brown;
+    }
+    p {
+      height: 100px;
+      background-color: blueviolet;
+    }
+    .bottom {
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+    <img src="bg.jpg" data-src="avatar.jpg" alt="">
+  </div>
+  <script>
+    const io = new IntersectionObserver(entires => {
+      entires.forEach(img => {
+        // 如果当前图片在视图内，并且存在data-src属性，那么就进行替换
+        if (img.isIntersecting && img.target.dataset.src) {
+          img.target.src = img.target.dataset.src
+          img.target.removeAttribute('data-src')
+        }
+      })
+    })
+    // 监听所有图片
+    const images = [...document.querySelectorAll('.container img')]
+    images.forEach(img => io.observe(img))
+  </script>
+</body>
+</html>

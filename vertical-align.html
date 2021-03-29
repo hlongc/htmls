@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      font-size: 30px;
+      height: 150px;
+      border: 1px solid red;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    div span {
+      display: inline-block;
+      font-size: 15px;
+      background-color: red;
+      color: #fff;
+    }
+    div p {
+      display: inline-block;
+      font-size: 40px;
+      height: 50px;
+      background-color: green;
+      color: #fff;
+    }
+    span.baseline {
+      vertical-align: baseline;
+    }
+    span.sub {
+      vertical-align: sub;
+    }
+    span.super {
+      vertical-align: super;
+    }
+    span.top {
+      vertical-align: top;
+    }
+    span.middle {
+      vertical-align: middle;
+    }
+    span.bottom {
+      vertical-align: bottom;
+    }
+    span.text-top {
+      vertical-align: text-top;
+    }
+    span.text-bottom {
+      vertical-align: text-bottom;
+    }
+
+  </style>
+</head>
+<body>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="baseline">baseline</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="sub">sub</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="super">super</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="top">top</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="middle">middle</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="bottom">bottom</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="text-top">text-top</span><p>测试文字测试文字</p></div>
+  <div>测试文字测试文字测试文字测试文字测试文字测试文字测<span class="text-bottom">text-bottom</span><p>测试文字测试文字</p></div>
+  <!-- <script>
+    console.log(person) // undefined
+    console.log(fun) // function
+    var person = "Eric";
+    console.log(person) // Eric
+    function fun() {
+      console.log(person) // undefined
+      var person = "Tom";
+      console.log(person) // Tom
+    }
+    fun()
+    console.log(person) // Eric
+  </script>
+  <script>
+    console.log(fun) // funtion
+    console.log(person) // undefined
+  </script> -->
+  <script>
+    class LazyManClass{
+      constructor(name) {
+        this.name = name
+        this.taskList = []
+        console.log(`I am ${this.name}`)
+        setTimeout(() => {
+            this.next()
+        }, 0)
+      }
+      eat(something) {
+        const fn = () => ((t) => {
+          console.log(`eat ${t}`)
+          this.next()
+        })(something)
+        this.taskList.push(fn)
+        return this
+      }
+      sleep(time) {
+        const fn = () => ((t) => {
+          setTimeout(() => {
+            console.log(`sleep ${t}s ...`)
+            this.next()
+          }, t * 1000)
+        })(time)
+        this.taskList.push(fn)
+        return this
+      }
+      sleepFirst(time) {
+        const fn = () => ((t) => {
+          setTimeout(() => {
+            console.log(`sleep first ${t}s ...`)
+            this.next()
+          }, t * 1000)
+        })(time)
+        this.taskList.unshift(fn)
+        return this
+      }
+      next() {
+        var fn = this.taskList.shift()
+        fn && fn()
+      }
+    }
+    function LazyMan(name) {
+      return new LazyManClass(name)
+    }
+    LazyMan('Tony').eat('lunch').eat('dinner').sleepFirst(5).sleep(10).eat('junk food');
+  </script>
+</body>
+</html>

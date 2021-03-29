@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 启用csp策略，所有脚本均来自站点的同一个源 (不包括其子域名) -->
+  <!-- script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com -->
+  <!-- 设置脚本只能从自己源加载、可以执行不安全的内联脚本、还可以执行eval函数、还可以允许从哪个源加载js -->
+  <!-- img-src 'self' https://t8.baidu.com -->
+  <!-- 设置图片路径为自己源和指定的域名 -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; img-src 'self' https://t8.baidu.com">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+    img {
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <img width="500" src="./2-01分析中心-市场行情.png" alt="">
+  <img src="https://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1596730132&t=d900200462b4e0cab27aec8cdac3a6c9" alt="beautiful">
+  <script>
+    eval('console.log("inline eval")')
+  </script>
+  <script src="./test.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+</body>
+
+</html>

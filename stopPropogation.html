@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>stopPropagation</title>
+  <style>
+    li {
+      padding: 20px;
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>测试</li>
+    </ul>
+  </div>
+  <script>
+    document.querySelector('div').addEventListener('click', function(e) {
+      console.log('div')
+      // 在捕获阶段进行阻止冒泡操作也能让后续处于冒泡的捕获函数不会被执行,阻止传播的意思
+      e.stopPropagation()
+    }, true)
+    document.querySelector('ul').addEventListener('click', function() {
+      console.log('ul')
+    }, false)
+    document.querySelector('ul').addEventListener('click', function() {
+      console.log('li')
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>数据: <span></span></p>
+  <button onclick="update()">更新数据</button>
+  <button onclick="closeWorker()">关闭worker</button>
+  <script>
+    let count = 0
+    const span = document.querySelector('span')
+    span.innerText = count
+    const worker = new Worker('webworker.js')
+    worker.onmessage = function(e) {
+      count = e.data.count
+      span.innerText = count
+    }
+    function update() {
+      worker.postMessage({ type: 'update', count })
+    }
+
+    function closeWorker() {
+      console.log('close')
+      // worker.postMessage({ type: 'close' })
+      worker.terminate()
+    }
+
+  </script>
+</body>
+</html>

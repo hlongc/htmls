@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>最新数值: <span></span></div>
+  <button onclick="update()">更新</button>
+  <button onclick="toggle('close')">关闭woker</button>
+  <button onclick="toggle('open')">开启woker</button>
+  <script>
+    let num = 0, worker
+
+    function toggle(type) {
+      if (type === 'close') {
+        if (worker) worker.terminate()
+      } else {
+        worker = new Worker('./worker.js')
+        worker.onmessage = function(e) {
+          num = e.data
+        }
+      }
+    }
+    function update() {
+      document.querySelector('span').innerText = num
+    }
+  </script>
+</body>
+</html>

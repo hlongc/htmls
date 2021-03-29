@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 50%;
+        float: left;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <button id="app" onclick="fn1();fn2()">dom0级事件</button>
+      <pre>
+    &lt;button id=&quot;app&quot; onclick=&quot;fn1();fn2()&quot;&gt;dom0级事件&lt;/button&gt;
+    &lt;script&gt;
+      function fn1() {
+        console.log('fn1')
+      }
+      function fn2() {
+        console.log('fn2')
+      }
+      app.onclick = function() {
+        console.log('111')
+      }
+      app.onclick = function() {
+        console.log('222')
+      }
+      // print 222
+    &lt;/script&gt;
+    </pre
+      >
+    </div>
+    <div class="box">
+      <button id="root">dom2级事件</button>
+      <pre>
+      &lt;button id=&quot;root&quot;&gt;dom2级事件&lt;/button&gt;
+      &lt;script&gt;
+        function handleClick() {
+          console.log('dom2级：addEventListener')
+        }
+        root.addEventListener('click', handleClick)
+        root.addEventListener('click', handleClick)
+        root.addEventListener("click", function() {
+          console.log('匿名函数')
+        })
+        // dom2级：addEventListener
+        // 匿名函数
+      &lt;/script&gt;
+    </pre
+      >
+    </div>
+
+    <script>
+      function fn1() {
+        console.log("fn1");
+      }
+      function fn2() {
+        console.log("fn2");
+      }
+      app.onclick = function () {
+        console.log("111");
+      };
+      app.onclick = function () {
+        console.log("222");
+      };
+
+      function handleClick() {
+        console.log("dom2级：addEventListener");
+      }
+      root.addEventListener("click", handleClick);
+      root.addEventListener("click", handleClick);
+      root.addEventListener("click", function() {
+        console.log('匿名函数');
+      });
+    </script>
+  </body>
+</html>
