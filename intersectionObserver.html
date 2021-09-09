@@ -43,11 +43,11 @@
   </div>
   <script>
     const io = new IntersectionObserver(entires => {
-      entires.forEach(img => {
+      entires.forEach(item => {
         // 如果当前图片在视图内，并且存在data-src属性，那么就进行替换
-        if (img.isIntersecting && img.target.dataset.src) {
-          img.target.src = img.target.dataset.src
-          img.target.removeAttribute('data-src')
+        if (item.isIntersecting) {
+          item.target.src = item.target.dataset.src
+          io.unobserve(item.target)
         }
       })
     })

@@ -20,12 +20,12 @@
   <div class="box">嘻嘻嘻</div>
   <h2 elementtiming="meaningful">测试有意义的渲染</h2>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOMContentLoaded')
-    })
     window.onload = function() {
       console.log('onload')
     }
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded')
+    })
     setTimeout(() => {
       const div = document.createElement('div')
       div.innerText = '我是有意义的内容绘制'

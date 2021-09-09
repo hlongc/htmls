@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .list {
+        display: flex;
+      }
+
+      .item {
+        width: 100px;
+        height: 40px;
+        margin: 10px;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 25px;
+      }
+
+      .blue {
+        background-color: #e74c26;
+      }
+
+      .pink {
+        background-color: #f3d484;
+      }
+
+      .green {
+        background-color: #2e6baa;
+      }
+
+      .gray {
+        background-color: gray;
+      }
+
+      #web {
+        width: 150px;
+        height: 220px;
+        border: 1px solid gray;
+        position: absolute;
+        top: 150px;
+        left: 100px;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <div
+        class="item blue"
+        id="html"
+        draggable="true"
+        ondragstart="start(event)"
+      >
+        HTML
+      </div>
+      <div
+        class="item pink"
+        id="css"
+        draggable="true"
+        ondragstart="start(event)"
+      >
+        CSS
+      </div>
+      <div
+        class="item green"
+        id="js"
+        draggable="true"
+        ondragstart="start(event)"
+      >
+        JavaScript
+      </div>
+      <div
+        class="item gray"
+        id="jq"
+        draggable="true"
+        ondragstart="start(event)"
+      >
+        JQuery
+      </div>
+    </div>
+
+    <!-- 要放置的区域 -->
+    <div id="web" ondrop="drop(event)" ondragover="toOver(event)">
+      <div style="font-weight: bold"></div>
+    </div>
+
+    <script>
+      let id
+      //开始拖拽
+      function start(ev) {
+        id = ev.target.id; //获取拖拽元素的ID
+      }
+
+      //要放置的区域
+      function toOver(ev) {
+        ev.preventDefault(); //阻止默认事件
+      }
+
+      //放置元素的方法
+      function drop(ev) {
+        var app = document.getElementById(id); // 获取拖动的元素对象
+        var div = document.getElementById(ev.target.id); // 放置区域的元素对象
+        div.appendChild(app); // 把拖拽对象追加到放置区域中
+      }
+    </script>
+  </body>
+</html>

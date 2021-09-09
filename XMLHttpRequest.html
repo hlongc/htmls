@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+      switch(xhr.readyState) {
+        case 0:
+          console.log('未初始化')
+          break
+        case 1:
+          console.log('opened')
+          break
+        case 2:
+          console.log('header receive')
+          break
+        case 3:
+          console.log('loading')
+          break
+        case 4:
+          console.log('done')
+          if (xhr.status === 200) {
+            console.log(xhr.response)
+          }
+      }
+    }
+    xhr.ontimeout = e => console.log(e)
+    xhr.onerror = e => console.log(e)
+    xhr.responseType = 'json'
+    xhr.open('get', 'http://localhost:3003/cors/info', true)
+    xhr.timeout = 6000
+    xhr.send()
+  </script>
+</body>
+</html>

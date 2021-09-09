@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      height: 50px;
+      line-height: 50px;
+      background-color: darkseagreen;
+      text-align: center;
+    }
+    nav {
+      overflow: hidden;
+      padding: 0 150px 0 200px;
+    }
+    nav > div {
+      height: 200px;
+      float: left;
+      position: relative;
+      display: flex;
+      align-items: center;      
+    }
+    .left {
+      width: 200px;
+      margin-left: -100%;
+      background-color: lightseagreen;
+      left: -200px;
+    }
+    .right {
+      width: 150px;
+      margin-left: -150px;
+      left: 150px;
+      background-color: cadetblue;
+    }
+    .center {
+      width: 100%;
+      background-color: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <nav>
+    <div class="center">
+      <label for="red">红色</label>
+      <input type="checkbox" name="color" value="red" id="red" />
+      <label for="green">绿色</label>
+      <input type="checkbox" name="color" value="green" id="green" />
+      <label for="yellow">黄色</label>
+      <input type="checkbox" name="color" value="yellow" id="yellow" />
+      <p>
+        <button onclick="print()">打印</button>
+      </p>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </nav>
+  <footer>footer</footer>
+  <iframe src="./isInIframe.html"></iframe>
+  <script>
+    // 'use strict';
+    function print() {
+      console.log([...document.getElementsByName('color')].filter(item => item.checked).map(item => item.value))
+    }
+    function demo() {
+      console.log(this)
+    }
+    demo()
+  </script>
+</body>
+</html>

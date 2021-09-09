@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // document.body.style.background = 'red';
+      // console.log('start')
+      // const channel = new MessageChannel()
+      // const port1 = channel.port1
+      // const port2 = channel.port2
+      // port1.onmessage = () => {
+      //   console.log('MessageChannel')
+      //   document.body.style.background = 'deepskyblue';
+      // }
+      // port2.postMessage(123)
+
+      // queueMicrotask(() => {
+      //   console.log('queueMicrotask')
+      //   document.body.style.background = 'green';
+      // })
+      // requestAnimationFrame(() => {
+      //   console.log('requestAnimationFrame')
+      //   document.body.style.background = 'red';
+      // })
+      // Promise.resolve().then(()=>{
+      //     console.log('Promise.resolve().then')
+      //     document.body.style.background = 'yellow';
+      // })
+      // console.log('end');
+
+      console.log(1);
+      function foo() {
+        // return console.log(3)
+        return new Promise(resolve => {
+          setTimeout(() => {
+            console.log(3)
+            resolve()
+          }, 5000)
+        })
+      }
+      async function async() {
+        console.log(2);
+        await foo();
+        console.log(4);
+      }
+      async()
+      console.log(8);
+    </script>
+  </body>
+</html>

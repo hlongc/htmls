@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <p>在html中写onclick和js中写onclick属于dom0级,并且js中写的onclick会覆盖html中写的;html中的onclick可以绑定多个，如onclick="click1();click2()"</p>
+  <button id="btn1" onclick="click1();click2()">dom0级</button>
+  <p>用addEventListener和attachEvent绑定属于dom2级,同一个事件类型可以绑定多个监听函数</p>
+  <button id="btn2">dom2级</button>
+  <script>
+    function click1() {
+      console.log('dom0级7777')
+    }
+    function click2() {
+      console.log('dom0级8888')
+    }
+    const btn1 = document.querySelector('#btn1')
+    btn1.onclick = function() {
+      console.log('dom0级别6666')
+    }
+    const btn2 = document.querySelector('#btn2')
+    btn2.addEventListener('click', function() {
+      console.log('addEventListener click111')
+    })
+    btn2.addEventListener('click', function() {
+      console.log('addEventListener click222')
+    })
+  </script>
+</body>
+</html>

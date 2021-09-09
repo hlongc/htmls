@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .container {
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    .container > div {
+      height: 100%;
+    }
+    .l {
+      background-color: darkcyan;
+    }
+    .r {
+      background-color: darksalmon;
+    }
+    .left1 {
+      width: 200px;
+      float: left;
+    }
+    .right1 {
+      margin-left: 200px;
+      /* overflow: hidden; */
+    }
+    .container.flex {
+      display: flex;
+    }
+    .flex .left2 {
+      width: 200px;
+    }
+    .flex .right2 {
+      flex: 1;
+    }
+    .overflow .left3 {
+      width: 200px;
+      float: left;
+    }
+    .overflow .right3 {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="l left1">左边200px</div>
+    <div class="r right1">右边margin-left:200px</div>
+  </div>
+  <div class="container flex">
+    <div class="l left2">左边width: 200px;</div>
+    <div class="r right2">右边flex: 1;</div>
+  </div>
+  <div class="container overflow">
+    <div class="l left3">左边width: 200px;</div>
+    <div class="r right3">右边overflow: hidden;</div>
+  </div>
+</body>
+</html>

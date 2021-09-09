@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .demo {
+      height: 100px;
+      background-color: mediumaquamarine;
+      margin-bottom: 10px;
+    }
+    .left, .right {
+      color: #FFF;
+      font-size: 20px;
+      background-color: mediumvioletred;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: mediumpurple;
+    }
+
+    .demo1 .left {
+      float: left;
+    }
+    .demo1 .right {
+      float: left;
+      width: calc(100% - 200px);
+      height: 100%;
+    }
+    .demo2 {
+      display: flex;
+    }
+    .demo2 .left {
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo demo1">
+    <div class="left">我是left</div>
+    <div class="right">我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right222222222333333333555555555</div>
+  </div>
+
+  <div class="demo demo2">
+    <div class="left">我是left</div>
+    <div class="right">我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right我是right222222222333333333555555555</div>
+  </div>
+</body>
+</html>

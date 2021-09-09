@@ -8,21 +8,31 @@
 </head>
 <body>
   <script>
+    function createFetch(timeout = 60 * 1000, url, config = {}) {
+      const controller = new AbortController
+      const signal = controller.signal
+      
+      const timeoutPromise = new Promise((_resolve, reject) => {
+        signal.addEventListener('abort', () => {
+          reject('超时' + timeout)
+        })
+        setTimeout(() => {
+          controller.abort()
+        }, timeout)
+      })
+      const fetchPromise = new Promise((resolve, reject) => {
+        fetch(url, Object.assign({ signal }, config)).then(res => resolve(res.json())).catch(reject)
+      })
 
-    const header = new Headers({
-      'Access-Controll-Allow-Origin': '*'
-    })
-    console.log(header.get('Access-Controll-Allow-Origin'))
-    const controller = new AbortController
-    const signal = controller.signal
+      return Promise.race([timeoutPromise, fetchPromise])
+    }
     
-    fetch('http://localhost:3003/cors/info', { signal, mode: 'cors' })
-      .then(response => response.json())
-      .then(console.log)
-      .catch(console.log)
-    // setTimeout(() => {
-    //   controller.abort()
-    // }, 2000)
+    createFetch(2 * 1000, 'http://localhost:3003/cors/info', { mode: 'cors' }).then(d => {
+      console.log('success', d)
+    }).catch(e => {
+      console.log('error', e)
+    })
+    
   </script>
 </body>
 </html>

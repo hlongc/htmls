@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    header, footer {
+      height: 50px;
+      line-height: 50px;
+      background-color: darkseagreen;
+      text-align: center;
+    }
+    nav {
+      flex: 1;
+      display: flex;
+    }
+    nav > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left, .right {
+      width: 150px;
+      background-color: dodgerblue;
+    }
+    .left {
+      order: 1;
+    }
+    .right {
+      order: 3;
+    }
+    .center {
+      flex: 1;
+      order: 2;
+      background-color: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <nav>
+    <div class="center">center</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </nav>
+  <footer>footer</footer>
+</body>
+</html>

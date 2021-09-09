@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <iframe width="100%" height="100%" border="0" src="https://mp.weixin.qq.com/s?src=11&timestamp=1621040336&ver=3069&signature=iR3KLo91*KgmoxVweOUPjAmDCwVTzh*fFOQxEbzlzvzX1m4gw-sp*mfrVF8yuX4v2YhP7iG72wZG9hHDQcle9qrKJUmpOMnapTSHg2j7wUdGGGOROzy1qKV3e-tev4RG&new=1"></iframe>
+  <!-- <button onclick="openInvalidate()">打开失效链接</button>
+  <button onclick="openValidate()">打开有效链接</button> -->
+
+  <script>
+    function openInvalidate() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('get', 'https://mp.weixin.qq.com/s?src=11&timestamp=1621040336&ver=3069&signature=iR3KLo91*KgmoxVweOUPjAmDCwVTzh*fFOQxEbzlzvzX1m4gw-sp*mfrVF8yuX4v2YhP7iG72wZG9hHDQcle9qrKJUmpOMnapTSHg2j7wUdGGGOROzy1qKV3e-tev4RG&new=1', false)
+      xhr.onload = function(e) {
+        console.log(xhr.response)
+      }
+      xhr.onerror = function() {
+        console.log('打开失败')
+      }
+      xhr.send()
+    }
+    function openValidate() {
+
+    }
+  </script>
+</body>
+</html>

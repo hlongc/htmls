@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .rect {
+      width: 0;
+      height: 0;
+      padding-top: 10%;
+      padding-left: 10%;
+      background-color: hotpink;
+    }
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: lavender;
+      margin-top: 10%;
+      margin-left: 10%;
+      font-size: 12px;
+    }
+    .demo span {
+      font-size: 10px;
+      transform: scale(0.8);
+      display: block;
+    }
+    .container {
+      height: 30%;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .foo {
+      height: 100px;
+      background-color: lavender;
+    }
+    .bar {
+      height: calc(100% - 100px);
+      background-color: lightpink;
+      flex-grow: 1;
+    }
+    .ghost {
+      background-color: lightseagreen;
+    }
+    .child1 {
+      background-color: lightskyblue;
+    }
+    .child2 {
+      background-color: maroon;
+    }
+    .overflow {
+      height: 200px;
+      width: 300px;
+      overflow: hidden;
+      box-sizing: border-box;
+      border: 1px solid #333;
+    }
+    .none {
+      display: none;
+    }
+    .img {
+      height: 300px;
+      background-image: url(https://www.baidu.com/img/PC2_33dd3c933260c4ce48b25aa6816b072c.gif);
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="foo"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="rect"></div>
+  <div class="demo" id="demo" data-id="123">
+    <span>123</span>
+    456
+  </div>
+  <p class="ghost"><span class="child1">123</span><span class="child2">456</span></p>
+  <div class="overflow">
+    测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊测试一下啊
+  </div>
+  <img class="none" src="https://www.baidu.com/img/PC2_33dd3c933260c4ce48b25aa6816b072c.gif" alt="">
+  <!-- <div class="wrapper">
+    <div class="img"></div>
+  </div> -->
+  <script>
+    const demo = document.querySelector('#demo')
+    demo.addEventListener('click', function() {
+      console.log('click demo')
+    })
+  </script>
+</body>
+</html>
